@@ -1,0 +1,8 @@
+typedef struct {
+char nome[20];
+float costo;
+} Articolo;
+
+// leggere il file ed elencare, tra gli insiemi prodotti con stesso prezzo, i nomi del prodotto più numeroso.
+
+
