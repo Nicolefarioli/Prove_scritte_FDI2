@@ -1,0 +1,51 @@
+typedef struct{
+int numero;
+int costo;
+} Figurina;
+
+
+// scrivere un programma che visualizzi tutti i possibili insiemi di figurine il cui costo totale sia esattamente 50€
+
+
+
+void backtrack(Figurina* available, Figurina* solution, int size, int index, int sol_index, int costo, int count) {
+int N;
+
+		if (costo==50) {
+			_print(solution, N);
+			return;
+		}
+
+		if (index == size)
+			return;
+			
+
+	Figurina current_figurina = available[index];
+	if (_valid(solution, index, current_figurina) && count < N && (costo + current_figurina.costo <= 50)) {
+
+		solution[index] = current_fugurina;
+		backtrack(available, solution, size, index + 1, sol_index + 1, costo + current_figurina.costo, count + 1);
+
+	}
+	backtrack(available, solution, size, index + 1, sol_index, costo, count);
+
+}
+
+void _print(Figurina * s, int size) {
+
+	for (int i = 0; i < size; i++)
+		printf("%s: %d costo\n", s[i].costo);
+
+	printf("\n==\n");
+}
+
+bool _valid(Figurina* s, int size, figurina current_figurina) {
+
+	int num = current_figurina.numero;
+	for (int i = 0; i < size; i++) {
+		if (num == s[i].numero)
+			return false;
+	}
+	return true;
+
+}
