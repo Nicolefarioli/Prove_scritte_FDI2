@@ -1,0 +1,51 @@
+typedef struct {
+int altezza;
+int costo;
+}Mattone;
+
+
+
+// scriver eprogramma che aiuti Filippo a decidere quali mattoncini utilizzare per ottenere una torre alta esattamente 20 metri: indicare tutte le possibilità
+
+
+void backtrack(Mattone* available, Mattone* solution, int size, int index, int sol_index, int altezza, int count) {
+Int N;
+
+		if (count == N && altezza == 20) {
+			_print(solution, N);
+			return;
+		}
+
+		if (index == size)
+			return;
+			
+
+	Mattone current_mattone = available[index];
+	if (_valid(solution, index, current_mattone) && count < N && (altezza + current_mattone.altezza <= 20)) {
+
+		solution[index] = current_mattone;
+		backtrack(available, solution, size, index + 1, sol_index + 1, altezza + current_mattone.altezza , count + 1);
+
+	}
+	backtrack(available, solution, size, index + 1, sol_index, altezza, count);
+
+}
+
+void _print(Mattone* s, int size) {
+
+	for (int i = 0; i < size; i++)
+		printf("%s: %d kcal\n", s[i].altezza);
+
+	printf("\n==\n");
+}
+
+bool _valid(Mattone* s, int size, Mattone current_mattone) {
+
+	int sum = current_mattone.costo;
+	for (int i = 0; i < size; i++) {
+		if (sum == s[i].costo)
+			return false;
+	}
+	return true;
+
+}
