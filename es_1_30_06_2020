@@ -1,0 +1,56 @@
+
+ //All’interno di una classe di 20 alunni, di cui è noto il nome e la media voto, 
+ //occorre selezionare 4 persone a cui assegnare compiti speciali, 
+ //avendo cura che la loro media voto sia maggiore della media voto dell’intera classe. 
+ //Scrivere la funzione che indichi tutti i possibili insiemi di 4 studenti che soddisfano la richiesta.
+
+ #include <stdlib.h>
+ #include <stdio.h>
+ #include <stdbool.h>
+ 
+ 
+ 
+ typedef struct{
+ char nome[20];
+ float media;
+ } alunno;
+ 
+ 
+ 
+ 
+ float media(struct alunno *a, int size) {
+ float media=0;
+ 
+ for(int i=0;i<size:i++)
+media+=a[i].media;
+
+media/=size;
+return media;
+ 
+ }
+ 
+ 
+ void compiti_assegnati( alunno *a, alunno *soluzione, float media_curr, int index_soluzione, int size, int i){
+ 
+ float media_classe=media(a,size);
+ 
+ if(i==size) return;
+ 
+ if(s==4){
+ float media_soluzione=media(s,4);
+ 
+ if(media_soluzione > media_classe){
+ for( int i=0; i<4; i++){
+ printf("%s",soluzione[i].nome);
+ }
+ 
+ printf("\n"); 
+ return;
+ 
+ soluzione[i]=a[i];
+ }
+ 
+ compiti_assegnati(a,soluzione,media(soluzione,index_soluzione),index_soluzione+1,size,i+1);
+ }
+ compiti_assegnati(a,soluzione,media(soluzione,index_soluzione),index_soluzione,size,i+1);
+ }
