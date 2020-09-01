@@ -1,0 +1,36 @@
+//All’interno di una classe di 20 alunni, di cui è noto il nome e la media voto, 
+//occorre selezionare 4 persone a cui assegnare compiti speciali, 
+//avendo cura che la loro media voto sia maggiore della media voto dell’intera classe. 
+//Scrivere la funzione che indichi tutti i possibili insiemi di 4 studenti che soddisfano la richiesta.
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <stdbool.h>
+
+
+typedef struct {
+char name[10];
+double media;}alunno;
+
+
+void compiti_assegnati(int n,int k, unsigned i, alunno *input,alunno *output,int *vcurr, int cnt,double media_classe){
+
+/* verifico il caso base */
+
+if(i==n)
+return;
+
+if(cnt==4 && media>media_classe)
+_stampa(output,4);
+return;
+
+alunno current_alunno = input[i];
+	if (_valid(output, i, current_alunno) && cnt < 4 && (media + current_alunno.media <= media_classe)) {
+
+		output[i] = current_alunno;
+		backtrack(n,k,i+1,input, output,vcurr,media + current_alunno.media, cnt + 1);
+
+	}
+	backtrack(n,k,i+1,input, output,vcurr, media_classe, cnt);
+
+}
