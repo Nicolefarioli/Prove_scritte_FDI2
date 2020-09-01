@@ -1,0 +1,40 @@
+considera vittorie e quotazioni come vettori di 10 int
+
+crea una struct acquisti dove metti un vettore di 4 int in cui segno l'indice dei cavalli della soluzione + int=numero di cavalli vettore attuale
+che controllo fino a 4 
++ spesa totale
+vittorie totali
+
+
+#define N 4
+
+
+typedef struct {
+double spesa_totale;
+int vittorie_totali;
+int numero_cavalli[];
+int cavalli[N];
+} acquisti;
+
+typedef struct {
+float quotazione;
+float vittorie;
+} cavallo;
+
+
+i=indice di decisione
+n= numero cavalli
+AcquistiDaUltimoAcquisto=cnt--> mi ricorda quanti acquisti ho effettuato dall'ultimo e confrontato con budget massimo acquisti = 4
+
+
+void acquisto(double M, int n, double budget, cavallo *a, cavallo *s, int cnt, int i, int sol_i, int *vbest){
+
+if(i==n){
+printf("%f, ", a.
+
+}
+
+
+
+}
+
