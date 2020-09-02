@@ -1,0 +1,79 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+
+typedef struct item {
+int nodo;
+struct item *next;
+} nodo;
+
+
+int main () {
+Item *head=CreateEmpyList();
+Item *back=NULL;
+
+for(int i=0;i<10;i++){
+
+int voto;
+scanf("%d ", &voto);
+}
+
+if(!head){
+head=InsertHeadList(voto,head);
+back=head;
+}
+else
+{
+Item *tmp=back;
+
+while(head) {
+
+if(voto < head->voto){
+head=InsertHeadlist(voto,head);
+
+break;
+}}
+
+}
+
+
+
+
+
+
+
+float media(Item *list){
+
+int n=10;
+int somma=0;
+
+Item *h=list;
+while(list){
+somma=somma+list->voto;
+list=list-<next;
+
+}
+list=h;
+
+return (float) (somma/10);
+
+}
+
+
+
+
+void display(Item *list, float media) {
+Item *h=list;
+
+while (list){
+
+if(list->voto < media) {
+printf("%d ", list->voto);
+}
+list=list->next;
+
+}
+
+list=h;
+}
