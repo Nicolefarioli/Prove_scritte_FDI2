@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <sdtlib.h>
+
+
+typedef struct {
+     int    Numero;
+     float  CostoUnitario;
+     float  Guadagno;
+} Azione;
+
+
+void guadagno (Azione *a, bool *vcurr, int i, bool *vbest, int cnt, int sum, int size, int M, int *max){
+if(i==size)
+{
+if(cnt>(*max)){
+(*max)=cnt;
+memcpy(vbest,vcurr,n*sizeof(bool));
+}
+return;
+
+}
+
+vcurr[i]=0;
+guadagno(a,vcurr,i+1,vbest,cnt,size,M,max);
+
+
+if(sum+a[i].costounitario <=M)
+
+vcurr[i]=1;
+guadagno(a,vcurr,i+1,vbest,cnt+1,size,sum+a[i].costounitario,max);
+
+}
+
+
+
+OSSERVAZIONI SULLE VARIABILI:
+
+- VCURR:indica azioni caricate nella soluzione corrente
+- I:posizone attuale
+- CNT:n° soluzioni caricare in vcurr
+- SUM:somma costo unitario azioni vcurr
+- VBEST: azioni caricate nella migliore soluzione fino ad ora
+- SIZE: dimenzione struct 
+- M:budget massimo
+- MAX: n° azioni caricate in vbest
