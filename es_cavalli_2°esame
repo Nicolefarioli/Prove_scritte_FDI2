@@ -6,15 +6,6 @@ che controllo fino a 4
 vittorie totali
 
 
-#define N 4
-
-
-typedef struct {
-double spesa_totale;
-int vittorie_totali;
-int numero_cavalli[];
-int cavalli[N];
-} acquisti;
 
 typedef struct {
 float quotazione;
@@ -27,13 +18,46 @@ n= numero cavalli
 AcquistiDaUltimoAcquisto=cnt--> mi ricorda quanti acquisti ho effettuato dall'ultimo e confrontato con budget massimo acquisti = 4
 
 
-void acquisto(double M, int n, double budget, cavallo *a, cavallo *s, int cnt, int i, int sol_i, int *vbest){
+void acquisto(int M, int cnt, cavallo *a, int *bestvittorie, int size, int i, bool *vbest, bool *vcurr){
 
-if(i==n){
-printf("%f, ", a.
+if(i==size){
+if(cnt <=4) {
+int vittorie=0;
+int somma=0;
 
+for(int j=0;j<size;j++){
+
+if(vcurr[j]==1)
+{
+
+vittorie=vittorie+c[j].vittorie;
+somma=somma+c[j].quotazione;
+
+if(somma > M)
+return;
+}}
+
+if(vittorie > (*bestvittorie)){
+for(int j=0;j<size;j++) {
+
+vbest[j] = vcurr [j];
 }
 
+*bestvittorie=vittorie;
+}}
+return;
+}
+
+// scekta 1
+
+vcurr[i]=0;
+
+acquisto(c,vcurr,vbest,bestvittorie,i+1,cnt,size,M);
+
+
+vcurr[i]=1;
+
+acquisto(c,vcurr,vbest,bestvittorie,i+1,size,M,cnt+1);
 
 
 }
