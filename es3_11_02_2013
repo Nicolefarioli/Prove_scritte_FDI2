@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+typedef struct {
+char nome [10];
+int prezzo;
+} Articolo;
+
+
+possibili insiemi di 4 articoli il cui costo è esattamente 30€
+
+
+void display(Articolo *a, Articolo *sol, int size, int i, int sol_i, int prezzo, int cnt){
+
+if(cnt == 4 && prezzo==30){
+_print(sol,4);
+return;}
+
+if(i==size)
+return;
+
+
+Articolo curr=sol[i];
+if(cnt < 4 && (prezzo+curr.prezzo<=30) {
+sol[i]=curr;
+
+display(a,sol,size,i+1,sol_i+1,prezzo+curr.prezzo,cnt+1);
+
+}
+
+display(a,sol,size,i+1,sol_i,prezzo,cnt);
+}
+
+
+
+void _printf(Articolo *a, int size){
+
+for(int i=0; i<size; i++) {
+printf("%s: %d prezzo", a[i].nome);
+
+printf("\n");
+}}
